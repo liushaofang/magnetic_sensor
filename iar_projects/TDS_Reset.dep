@@ -5,7 +5,15 @@
   <fileChecksum>1440525216</fileChecksum>
   <configuration>
     <name>Debug</name>
-    <outputs/>
+    <outputs>
+      <file>$PROJ_DIR$\..\system\src\app\TDSReset.c</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\BspDef.c</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\Led.c</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\TimerB.c</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\TimerA.c</file>
+      <file>$PROJ_DIR$\..\system\src\mrfi\mrfi.c</file>
+      <file>$PROJ_DIR$\..\system\src\mrfi\mrfi_spi.c</file>
+    </outputs>
     <forcedrebuild>
       <name>[MULTI_TOOL]</name>
       <tool>XLINK</tool>

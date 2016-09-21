@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stdlib.h>
 #include "PMSUtil.h"
 #include "Uart.h"
 #include "Led.h"
@@ -7,6 +8,7 @@
 #define FLAG_SENT_PACKAGE							2
 #define FLAG_RCV_UART_DATA                                      3
 #define FLAG_GOT_ACK_OVERTIME				        4
+#define FLAG_SEND_PACKAGE_TIME_DUE                              5
 
 /*      定义转接板到配置器接收命令长度与接收命令缓冲区大小       */
 #ifdef CONFIG_UART_TO_CAN_BUF_SIZE
@@ -40,18 +42,22 @@ static uint16_t g_opt_after_sending_packet = 0;
 #define DATA_WAITING_MS		50
 
 #define NODE_NUM_PER_PAGE						3
-#define MAX_SON_NUM			50
+#define MAX_SON_NUM			6
 
 #define SINGLE_NODE_WAIT_TIMEOUT        50
 
 #define MAX_RESEND_TIMES							120
 
+//#pragma pack(push, 1)
 typedef struct element_of_endlist{
 	addr_t end_addr;
+        uint32_t normal_traffic_count;
+        uint32_t reverse_traffic_count;
 	uint8_t rssi0;
 	uint8_t rssi1;
         enum HeartbeatState heartbeat_flag;
 }element_of_endlist_t;
+//#pragma pack(pop)
 
 static mrfiPacket_t g_transmit_msg, g_receive_msg;
 static uint8_t g_son_number = 0;
@@ -90,6 +96,8 @@ static void resetDev();
 static void saveEndList();
 static void get_ack_from_can_node();
 
+void executeAtTimeUp_TimerB();
+
 void executeAtTransmitPacketISR_MRFI() {
 	PMS_SET(FLAG_SENT_PACKAGE);
 }
@@ -123,6 +131,96 @@ void executeAtTimeUp_TimerA() {
 void executeAtUartISR_BSP(const uint8_t *uart_msg){
         memcpy(uartMsg, uart_msg, UART_MSG_LEN);
         PMS_SET(FLAG_RCV_UART_DATA);
+}
+
+volatile uint32_t g_random_interval_second = 600;       //随机发送时间间隔，单位为秒，目前设计为300秒（5分钟）~900秒（15分钟）之间
+volatile uint32_t g_random_time_counter_second = 0;
+volatile uint32_t g_random_son_index = 0;
+volatile uint32_t g_normal_traffic_count = 0;
+volatile uint32_t g_reverse_traffic_count = 0;
+uint32_t g_random_seed = 0;
+uint8_t g_data_buffer[10 * MAX_SON_NUM + 1] = { 0 };
+
+void init_random_seed(){
+  g_random_seed = (uint32_t)g_nwk_param.channel << 24 | (uint32_t)mac_addr[0] << 16 | (uint32_t)mac_addr[1] << 8 | (uint32_t)mac_addr[2];
+  srand(g_random_seed);
+  g_random_seed = rand();
+}
+
+uint32_t get_rand(){
+  srand(g_random_seed);
+  g_random_seed = rand();
+  return g_random_seed;
+}
+
+void init_sensor_simulator(){
+  init_random_seed();
+  //g_random_interval_second = get_rand()%300 + 300;       //获取从[300, 600)之间的随机数
+  g_random_interval_second = get_rand()%5 + 5;       //获取从[5, 10)之间的随机数
+  g_random_time_counter_second = 0;
+  if(g_son_number > 0){
+    g_random_son_index = get_rand()%g_son_number;
+  }else{
+    g_random_son_index = 0;
+  }
+  
+  startTimer_TimerB(1000, executeAtTimeUp_TimerB);      //1000毫秒产生一次中断
+}
+
+void executeAtTimeUp_TimerB() {
+        g_random_time_counter_second += 1;
+        uint32_t random_time_counter_second = g_random_time_counter_second;
+        if(random_time_counter_second > g_random_interval_second){
+          PMS_SET(FLAG_SEND_PACKAGE_TIME_DUE);
+          g_random_time_counter_second = 0;
+          //g_random_interval_second = get_rand()%300 + 300;       //获取从[300, 600)之间的随机数
+          g_random_interval_second = get_rand()%5 + 5;       //获取从[5, 10)之间的随机数
+        }
+        
+        startTimer_TimerB(1000, executeAtTimeUp_TimerB);      //1000毫秒产生一次中断
+}
+
+void increase_traffic_count(int random_son_index){
+        DISABLE_WDT;    //2015.02.01:liusf add watchdog function
+        DISABLE_INTERRUPTS_SGR();
+        uint8_t data_len = 0;
+        if(read_system_param(PARAM_TYPE_SENSOR_ADDR_LIST, &data_len, 1) != SUCCESS) {
+		twinkleLed_LED(LED1, 1, 100);
+		while(1);
+	}
+        if(data_len != 0xFF) {
+		g_son_number = (data_len - 1) / 10;
+                if(g_son_number > 0 && random_son_index < g_son_number){
+                        memset(g_data_buffer, 0, sizeof(g_data_buffer));
+                        read_system_param(PARAM_TYPE_SENSOR_ADDR_LIST, g_data_buffer, data_len);
+                        for(uint8_t i = 0; i < g_son_number; i++) {
+                                g_end_list[i].end_addr.addr[0] = g_data_buffer[10 * i + 1];
+                                g_end_list[i].end_addr.addr[1] = g_data_buffer[10 * i + 2];
+                                memcpy(&g_end_list[i].normal_traffic_count, &g_data_buffer[10 * i + 3], 4);
+                                memcpy(&g_end_list[i].reverse_traffic_count, &g_data_buffer[10 * i + 7], 4);
+                                g_end_list[i].heartbeat_flag = DEAD;
+                        }
+                        
+                        g_end_list[random_son_index].normal_traffic_count += 1;
+                        g_end_list[random_son_index].reverse_traffic_count += 1;
+                        
+                        memcpy(&g_data_buffer[10 * random_son_index + 3], &g_end_list[random_son_index].normal_traffic_count, 4);
+                        memcpy(&g_data_buffer[10 * random_son_index + 7], &g_end_list[random_son_index].reverse_traffic_count, 4);
+                                
+//                        *(uint32_t *)(&g_data_buffer[10 * random_son_index + 3]) = g_end_list[random_son_index].normal_traffic_count;
+//                        *(uint32_t *)(&g_data_buffer[10 * random_son_index + 7]) = g_end_list[random_son_index].reverse_traffic_count;
+                        
+                        write_system_param(PARAM_TYPE_SENSOR_ADDR_LIST, g_data_buffer, data_len);
+                        
+                        delayInMs_BSP(500);
+                        
+                        memset(g_data_buffer, 0 ,sizeof(g_data_buffer));
+                        read_system_param(PARAM_TYPE_SENSOR_ADDR_LIST, g_data_buffer, data_len);
+                        
+                }
+	}
+        ENABLE_INTERRUPTS_SGR();
+        FEED_WDT;    //2015.02.01:liusf add watchdog function
 }
 
 void main() {
@@ -168,7 +266,32 @@ void main() {
 //	data[19] = 0x0A;
 //	data[20] = 0x03;
 //	write_system_param(PARAM_TYPE_SENSOR_ADDR_LIST, data, 21);*/
-//        write_system_param(PARAM_TYPE_SENSOR_ADDR_LIST, 0, 0);
+//        
+//        uint8_t data[21];
+//	data[0] = 21;
+//	data[1] = 0x01;
+//	data[2] = 0x03;
+//	data[3] = 0x00;
+//	data[4] = 0x00;
+//	data[5] = 0x00;
+//	data[6] = 0x00;
+//	data[7] = 0x00;
+//	data[8] = 0x00;
+//	data[9] = 0x00;
+//	data[10] = 0x00;
+//	data[11] = 0x02;
+//	data[12] = 0x03;
+//	data[13] = 0x00;
+//	data[14] = 0x00;
+//	data[15] = 0x00;
+//	data[16] = 0x00;
+//	data[17] = 0x00;
+//	data[18] = 0x00;
+//	data[19] = 0x00;
+//	data[20] = 0x00;
+//	write_system_param(PARAM_TYPE_SENSOR_ADDR_LIST, data, 21);
+//        
+////        write_system_param(PARAM_TYPE_SENSOR_ADDR_LIST, 0, 0);
 //	while(1);
         
 	if(read_system_param(PARAM_TYPE_MAC, mac_addr, 3) != SUCCESS){
@@ -201,15 +324,17 @@ void main() {
 	}
 
 	if(data_len != 0xFF) {
-		g_son_number = (data_len - 1) / 2;
+		g_son_number = (data_len - 1) / 10;
 	}
 
 	if(g_son_number > 0){
-		uint8_t data[2 * MAX_SON_NUM + 1];
-                read_system_param(PARAM_TYPE_SENSOR_ADDR_LIST, data, data_len);
+                memset(g_data_buffer, 0, sizeof(g_data_buffer));
+                read_system_param(PARAM_TYPE_SENSOR_ADDR_LIST, g_data_buffer, data_len);
                 for(uint8_t i = 0; i < g_son_number; i++) {
-			g_end_list[i].end_addr.addr[0] = data[2 * i + 1];
-			g_end_list[i].end_addr.addr[1] = data[2 * (i + 1)];
+			g_end_list[i].end_addr.addr[0] = g_data_buffer[10 * i + 1];
+			g_end_list[i].end_addr.addr[1] = g_data_buffer[10 * i + 2];
+                        g_end_list[i].normal_traffic_count = *(uint32_t *)(&g_data_buffer[10 * i + 3]);
+                        g_end_list[i].reverse_traffic_count = *(uint32_t *)(&g_data_buffer[10 * i + 7]);
                         g_end_list[i].heartbeat_flag = DEAD;
 		}
 	}
@@ -224,10 +349,12 @@ void main() {
 	//向CAN节点发送通道号并等待CAN节点应答
 	//get_ack_from_can_node();      //TODO:2013.12.17--liusf comment it off for no can node situation.
         
+        //模拟传感器节点初始化
+        init_sensor_simulator();
+        
 	g_transmit_msg.frameLength = PACKET_LEN -3;
 	turnOnWAR_MRFI();
 	while(1) {
-          
                 DISABLE_WDT;       //2015.02.01:liusf add watchdog function
 		LPM3;
                 //DISABLE_WDT;       //2015.04.19:liusf add watchdog function
@@ -300,7 +427,7 @@ void main() {
 					uartMsg[1] = g_nwk_param.ip_addr.addr[1];
 					uartMsg[2] = g_end_list[g_current_son_index].end_addr.addr[0];
 					uartMsg[3] = g_end_list[g_current_son_index].end_addr.addr[1];
-					uartMsg[4] = OP_REPORT_ERROR_CODE;
+					uartMsg[4] = OP_UPLOAD_STATUS_DATA;
 					uartMsg[5] = ERROR_NODE_ACK_TIMEOUT;
 					uartMsg[6] = 0x0;
 					uartMsg[7] = 0x0;
@@ -309,6 +436,32 @@ void main() {
 			}
                         FEED_WDT;       //2015.02.01:liusf add watchdog function
 		}
+                
+                //周期性发送数据包时间到
+                FEED_WDT;       //2016.08.28:liusf add watchdog function
+                if(PMS_IS_SET(FLAG_SEND_PACKAGE_TIME_DUE)){
+                	PMS_CLEAR(FLAG_SEND_PACKAGE_TIME_DUE);
+                        if(g_son_number > 0){
+                              DISABLE_WDT;       //2016.08.28:liusf add watchdog function
+                              stopTimer_TimerB();
+                              g_random_son_index = get_rand()%g_son_number;
+                              increase_traffic_count(g_random_son_index);
+                              memset(uartMsg, 0, UART_MSG_LEN);
+                              uartMsg[0] = g_nwk_param.ip_addr.addr[0];
+                              uartMsg[1] = g_nwk_param.ip_addr.addr[1];
+                              uartMsg[2] = g_end_list[g_random_son_index].end_addr.addr[0];
+                              uartMsg[3] = g_end_list[g_random_son_index].end_addr.addr[1];
+                              uartMsg[4] = OP_REPORT_ERROR_CODE;
+                              uartMsg[5] = g_nwk_param.channel;
+                              uartMsg[6] = 0x0;
+                              memcpy(&uartMsg[7], (void *)&(g_end_list[g_random_son_index].normal_traffic_count), 4);
+                              memcpy(&uartMsg[11], (void *)&(g_end_list[g_random_son_index].reverse_traffic_count), 4);
+                              uartMsg[15] = 0x80;
+                              writeToUart_BSP(uartMsg, UART_MSG_LEN);
+                              startTimer_TimerB(1000, executeAtTimeUp_TimerB);      //1000毫秒产生一次中断
+                              FEED_WDT;       //2016.08.28:liusf add watchdog function
+                        }
+                }
 	}
 }
 
@@ -810,6 +963,8 @@ uint8_t addEndToList(uint8_t highAddr, uint8_t lowAddr) {
 		return FALSE;
 	} else {
 		g_end_list[g_son_number].end_addr = temp_addr;
+                g_end_list[g_son_number].normal_traffic_count = 0;
+                g_end_list[g_son_number].reverse_traffic_count = 0;
 		g_son_number++;
 		saveEndList();
 		return TRUE;
@@ -904,11 +1059,13 @@ void resetDev() {
 }
 
 void saveEndList() {
-	uint8_t data[2 * MAX_SON_NUM + 1];
-	data[0] = 2 * g_son_number + 1;
+        memset(g_data_buffer, 0, sizeof(g_data_buffer));
+	g_data_buffer[0] = 10 * g_son_number + 1;
 	for(uint8_t i = 0; i < g_son_number; i++) {
-		data[2 * i + 1]  = g_end_list[i].end_addr.addr[0];
-		data[2 * (i + 1)] = g_end_list[i].end_addr.addr[1];
+		g_data_buffer[10 * i + 1]  = g_end_list[i].end_addr.addr[0];
+		g_data_buffer[10 * i + 2] = g_end_list[i].end_addr.addr[1];
+                memcpy((void *)&g_data_buffer[10 * i + 3], (void *)(&g_end_list[i].normal_traffic_count), 4);
+                memcpy((void *)&g_data_buffer[10 * i + 7], (void *)(&g_end_list[i].reverse_traffic_count), 4);
 	}
-	write_system_param(PARAM_TYPE_SENSOR_ADDR_LIST, data, data[0]);
+	write_system_param(PARAM_TYPE_SENSOR_ADDR_LIST, g_data_buffer, g_data_buffer[0]);
 }

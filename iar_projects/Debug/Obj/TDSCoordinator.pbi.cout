@@ -1,11 +1,11 @@
-"D:\CC430Dev\TrafficDectectionDemo\TrafficDetectionDemo_XiAn_WithDirection_workspace\system\src\app\TDSCoordinator.c"
+"D:\ZhangProject\TrafficDetectionDemo_XiAn_WithDirection\system\src\app\TDSCoordinator.c"
 -std=c99
 -I
-D:\CC430Dev\TrafficDectectionDemo\TrafficDetectionDemo_XiAn_WithDirection_workspace\iar_projects\..\system\src\sgr_def
+D:\ZhangProject\TrafficDetectionDemo_XiAn_WithDirection\iar_projects\..\system\src\sgr_def
 -I
-D:\CC430Dev\TrafficDectectionDemo\TrafficDetectionDemo_XiAn_WithDirection_workspace\iar_projects\..\system\src\bsp
+D:\ZhangProject\TrafficDetectionDemo_XiAn_WithDirection\iar_projects\..\system\src\bsp
 -I
-D:\CC430Dev\TrafficDectectionDemo\TrafficDetectionDemo_XiAn_WithDirection_workspace\iar_projects\..\system\src\mrfi
+D:\ZhangProject\TrafficDetectionDemo_XiAn_WithDirection\iar_projects\..\system\src\mrfi
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\clib
 -I
@@ -13,11 +13,11 @@ C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.4 Evaluation\430\inc\clib
 -I
-D:\CC430Dev\TrafficDectectionDemo\TrafficDetectionDemo_XiAn_WithDirection_workspace\system\src\sgr_def
+D:\ZhangProject\TrafficDetectionDemo_XiAn_WithDirection\system\src\sgr_def
 -I
-D:\CC430Dev\TrafficDectectionDemo\TrafficDetectionDemo_XiAn_WithDirection_workspace\system\src\bsp
+D:\ZhangProject\TrafficDetectionDemo_XiAn_WithDirection\system\src\bsp
 -I
-D:\CC430Dev\TrafficDectectionDemo\TrafficDetectionDemo_XiAn_WithDirection_workspace\system\src\mrfi
+D:\ZhangProject\TrafficDetectionDemo_XiAn_WithDirection\system\src\mrfi
 -DCONFIG_TMS_COORDINATOR=0
 -DCONFIG_TRAFFIC_DETECTION_APPLICATION=0
 -DCONFIG_ADD_REVERSE_TRAFFIC_COUNT=0
@@ -189,9 +189,9 @@ D:\CC430Dev\TrafficDectectionDemo\TrafficDetectionDemo_XiAn_WithDirection_worksp
 -D__JMP_BUF_ELEMENT_TYPE__=unsigned short int
 -D__JMP_BUF_NUM_ELEMENTS__=10
 -D__TID__=0xab00
--D__VER__=550
--D__SUBVERSION__=1
--D__BUILD_NUMBER__=465
+-D__VER__=551
+-D__SUBVERSION__=6
+-D__BUILD_NUMBER__=669
 -D__IAR_SYSTEMS_ICC__=8
 -D__VA_STACK_DECREASING__=1
 -D__VA_STACK_ALIGN__=2
@@ -248,9 +248,9 @@ D:\CC430Dev\TrafficDectectionDemo\TrafficDetectionDemo_XiAn_WithDirection_worksp
 -D__REGISTER_MODEL_REG20__=1
 -D__REGISTER_MODEL__=__REGISTER_MODEL_REG16__
 -D__PLAIN_INT_BITFIELD_IS_SIGNED__=1
--D__IAR_COMPILERBASE__=592899
--D__DATE__="Apr 12 2015"
--D__TIME__="10:28:39"
+-D__IAR_COMPILERBASE__=592903
+-D__DATE__="Aug 28 2016"
+-D__TIME__="23:43:59"
 -D__STDC__=1
 -D__STDC_VERSION__=199901L
 -D__STDC_HOSTED__=1
@@ -281,4 +281,4 @@ D:\CC430Dev\TrafficDectectionDemo\TrafficDetectionDemo_XiAn_WithDirection_worksp
 -DCONFIG_ADD_REVERSE_TRAFFIC_COUNT=1
 -DENABLE_WDT=1
 -D__MSP430F2272__=1
--D__VERSION__="IAR C/C++ Compiler V5.50.1.20465/W32, Evaluation edition for MSP430"
+-D__VERSION__="IAR C/C++ Compiler V5.51.6.50669/W32 for MSP430"

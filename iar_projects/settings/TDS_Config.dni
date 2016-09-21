@@ -65,6 +65,8 @@ Mode=0
 Graph=0
 Symbiont=0
 Exclusions=
+[EEM State Storage]
+Buffer=BAAAAAAADAAAAAAAAAAAAAAA
 [Breakpoints]
 Count=0
 [FET]
