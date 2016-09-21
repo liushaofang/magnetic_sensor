@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>3817753113</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\system\src\app\TDSLed.c</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\BspDef.c</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\Led.c</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\Flash.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\TDSLed.r43</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
+      <file>$TOOLKIT_DIR$\config\lnk430F2272.xcl</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\TimerA.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\TDSLed.pbi</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\Led.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\BspDef.r43</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Flash.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Led.pbi</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\Uart.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Flash.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\TimerB.pbi</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\TimerB.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\TimerB.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\TimerB.c</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\Uart.c</file>
+      <file>$PROJ_DIR$\..\system\src\mrfi\mrfi.c</file>
+      <file>$PROJ_DIR$\..\system\src\mrfi\mrfi_spi.c</file>
+      <file>$PROJ_DIR$\..\system\src\mrfi\mrfi_spi.h</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\mag3110.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\mrfi_spi.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\msp430x22x2.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\BspDef.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Uart.r43</file>
+      <file>$PROJ_DIR$\..\system\src\app\PMSUtil.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\mrfi.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\mrfi.r43</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\Flash.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Uart.pbi</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\BspDef.h</file>
+      <file>$PROJ_DIR$\..\system\src\mrfi\mrfi_CC1101_Defs.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\TDS_Led.d43</file>
+      <file>$PROJ_DIR$\Debug\Obj\mrfi_spi.r43</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\Voltage.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\..\system\src\mrfi\mrfi.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$PROJ_DIR$\..\system\src\mrfi\mrfi_CC1101_Concept.h</file>
+      <file>$PROJ_DIR$\..\system\src\sgr_def\SGR_CONCEPT.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Led.r43</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\..\system\src\app\TDSLed.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 4</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 23 15 18 46 11 41 10 45 48 34 9 39 51 13 31 49 47 50 7 21 17 44 37</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 23 15 18 46 11 41 10 45 48 34 9 39 51 13 31 49 47 50 7 21 17 44 37</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\system\src\bsp\BspDef.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 32</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 12</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 39 51 13 31 49</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 39 51 13 31 49</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\system\src\bsp\Led.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 16</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 52</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9 39 51 13 31 49</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 9 39 51 13 31 49</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\system\src\bsp\Flash.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 19</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 37 39 51 13 31 49 23 15 18 46 11 41 10 45 48</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 37 39 51 13 31 49 23 15 18 46 11 41 10 45 48</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 42</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\system\src\bsp\TimerB.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 22</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21 51 13 31 49</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 21 51 13 31 49</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\system\src\bsp\Uart.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 38</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 33</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 51 13 31 49 9 39</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 17 51 13 31 49 9 39</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\system\src\mrfi\mrfi.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 36</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 23 15 18 46 11 41 10 45 48 47 9 39 51 13 31 49 50 40 28 29</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 23 15 18 46 11 41 10 45 48 47 9 39 51 13 31 49 50 40 28 29</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\system\src\mrfi\mrfi_spi.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 30</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 43</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 28 9 39 51 13 31 49 50</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 28 9 39 51 13 31 49 50</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\TDS_Led.d43</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 6 12 19 52 4 22 33 36 43 5</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

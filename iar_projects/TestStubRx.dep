@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>4239573812</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\system\src\bsp\BspDef.c</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\Led.c</file>
+      <file>$PROJ_DIR$\..\system\src\mrfi\mrfi.c</file>
+      <file>$PROJ_DIR$\..\system\src\app\TestStubRx.c</file>
+      <file>$PROJ_DIR$\..\system\src\mrfi\mrfi_spi.c</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\TimerB.c</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\Uart.c</file>
+      <file>$PROJ_DIR$\..\system\src\mrfi\mrfi_CC1101_Concept.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\Led.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Uart.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\BspDef.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\Uart.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\mrfi_spi.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\msp430x22x2.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\TimerB.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\TestStubRx.d43</file>
+      <file>$PROJ_DIR$\Debug\Obj\mrfi_spi.r43</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\Uart.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.h</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\TimerA.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\..\system\src\app\TestStub.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\TestStubRx.ulp</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\mag3110.h</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$PROJ_DIR$\..\system\src\mrfi\mrfi_spi.h</file>
+      <file>$PROJ_DIR$\..\system\src\mrfi\mrfi.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\mrfi.pbi</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\TimerB.h</file>
+      <file>$PROJ_DIR$\..\system\src\mrfi\mrfi_CC1101_Defs.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Led.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\TimerB.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\mrfi.r43</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\TestStubRx.pbi</file>
+      <file>$PROJ_DIR$\..\system\src\bsp\BspDef.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Led.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\TestStubRx.r43</file>
+      <file>$PROJ_DIR$\..\system\src\sgr_def\SGR_CONCEPT.h</file>
+      <file>$TOOLKIT_DIR$\config\lnk430F2272.xcl</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\BspDef.pbi</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 18</file>
+        </tool>
+        <tool>
+          <name>ULP430</name>
+          <file> 25</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\system\src\bsp\BspDef.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 48</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 11</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 42 45 40 15 29</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 42 45 40 15 29</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\system\src\bsp\Led.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 43</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 36</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9 42 45 40 15 29</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 9 42 45 40 15 29</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\system\src\mrfi\mrfi.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 33</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 39</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 37 14 23 21 8 27 47 30 32 9 42 45 40 15 29 7 35 31 28</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 17 37 14 23 21 8 27 47 30 32 9 42 45 40 15 29 7 35 31 28</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\system\src\app\TestStubRx.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 41</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 44</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 24 9 42 45 40 15 29 20 32 7 22 34 17 37 14 23 21 8 27 47 30</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 24 9 42 45 40 15 29 20 32 7 22 34 17 37 14 23 21 8 27 47 30</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\system\src\mrfi\mrfi_spi.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 13</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 19</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 31 9 42 45 40 15 29 7</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 31 9 42 45 40 15 29 7</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\system\src\bsp\TimerB.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 38</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 16</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34 45 40 15 29</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 34 45 40 15 29</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\system\src\bsp\Uart.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 10</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 12</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 45 40 15 29 9 42</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 45 40 15 29 9 42</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\TestStubRx.d43</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 46 11 36 44 16 12 39 19 26</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

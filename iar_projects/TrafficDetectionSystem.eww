@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\TDS_Config.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\TDS_Coordinator.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\TDS_End.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\TDS_GetRawMagnetData.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\TDS_Led.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\TDS_Reset.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\TDS_UpdateRawMagnetData.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\TestStubRx.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\TestStubTx.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

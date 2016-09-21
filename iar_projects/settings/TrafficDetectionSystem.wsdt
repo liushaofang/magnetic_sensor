@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<Workspace>
+  <ConfigDictionary>
+    
+  <CurrentConfigs><Project>TDS_Config/Debug</Project><Project>TDS_Coordinator/Debug</Project><Project>TDS_End/Debug</Project><Project>TDS_GetRawMagnetData/Debug</Project><Project>TDS_Led/Debug</Project><Project>TestStubRx/Debug</Project><Project>TestStubTx/Debug</Project><Project>TDS_Reset/Debug</Project><Project>TDS_UpdateRawMagnetData/Debug</Project></CurrentConfigs><CurrentProj>TDS_End</CurrentProj><OverviewSelected>0</OverviewSelected></ConfigDictionary>
+  <Desktop>
+    <Static>
+      <Workspace>
+        <ColumnWidths>
+          
+          
+          
+          
+        <Column0>218</Column0><Column1>72</Column1><Column2>26</Column2><Column3>0</Column3></ColumnWidths>
+      <PreferedWindows><Position>1</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows><Window><Factory>SourceBrowser</Factory></Window></Windows></PreferedWindows></Workspace>
+      <Build>
+        
+        
+        
+        
+      <ColumnWidth0>20</ColumnWidth0><ColumnWidth1>980</ColumnWidth1><ColumnWidth2>261</ColumnWidth2><ColumnWidth3>65</ColumnWidth3></Build>
+    <Find-in-Files><ColumnWidth0>589</ColumnWidth0><ColumnWidth1>94</ColumnWidth1><ColumnWidth2>1138</ColumnWidth2></Find-in-Files><TerminalIO/><Debug-Log><ColumnWidth0>32</ColumnWidth0><ColumnWidth1>1832</ColumnWidth1></Debug-Log><SourceBrowser><PreferedWindows><Position>1</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows><Window><Factory>Workspace</Factory></Window></Windows></PreferedWindows></SourceBrowser><Find-All-Declarations><ColumnWidth0>470</ColumnWidth0><ColumnWidth1>67</ColumnWidth1><ColumnWidth2>806</ColumnWidth2></Find-All-Declarations></Static>
+    <Windows>
+      
+      
+    <Wnd0>
+        <Tabs>
+          <Tab>
+            <Identity>TabID-12636-1191</Identity>
+            <TabName>Build</TabName>
+            <Factory>Build</Factory>
+            <Session/>
+          </Tab>
+        <Tab><Identity>TabID-24942-310</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab><Tab><Identity>TabID-28957-12010</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab><Tab><Identity>TabID-6674-12361</Identity><TabName>Breakpoints</TabName><Factory>Breakpoints</Factory></Tab><Tab><Identity>TabID-20377-9777</Identity><TabName>Find All Declarations</TabName><Factory>Find-All-Declarations</Factory><Session/></Tab></Tabs>
+        
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd1><Tabs><Tab><Identity>TabID-16505-18317</Identity><TabName>Workspace</TabName><Factory>Workspace</Factory><Session><NodeDict><ExpandedNode>TDS_Config</ExpandedNode><ExpandedNode>TDS_Config/source</ExpandedNode><ExpandedNode>TDS_Config/source/app</ExpandedNode><ExpandedNode>TDS_Config/source/bsp</ExpandedNode><ExpandedNode>TDS_Config/source/mrfi</ExpandedNode><ExpandedNode>TDS_Coordinator</ExpandedNode><ExpandedNode>TDS_Coordinator/source</ExpandedNode><ExpandedNode>TDS_Coordinator/source/app</ExpandedNode><ExpandedNode>TDS_Coordinator/source/bsp</ExpandedNode><ExpandedNode>TDS_Coordinator/source/mrfi</ExpandedNode><ExpandedNode>TDS_End</ExpandedNode><ExpandedNode>TDS_End/source</ExpandedNode><ExpandedNode>TDS_End/source/app</ExpandedNode><ExpandedNode>TDS_End/source/bsp</ExpandedNode><ExpandedNode>TDS_End/source/mrfi</ExpandedNode><ExpandedNode>TDS_GetRawMagnetData</ExpandedNode><ExpandedNode>TDS_GetRawMagnetData/source</ExpandedNode><ExpandedNode>TDS_GetRawMagnetData/source/app</ExpandedNode><ExpandedNode>TDS_GetRawMagnetData/source/bsp</ExpandedNode><ExpandedNode>TDS_GetRawMagnetData/source/mrfi</ExpandedNode><ExpandedNode>TDS_Led</ExpandedNode><ExpandedNode>TDS_Led/source</ExpandedNode><ExpandedNode>TDS_Led/source/app</ExpandedNode><ExpandedNode>TDS_Led/source/bsp</ExpandedNode><ExpandedNode>TDS_Led/source/mrfi</ExpandedNode><ExpandedNode>TDS_UpdateRawMagnetData</ExpandedNode><ExpandedNode>TDS_UpdateRawMagnetData/source</ExpandedNode><ExpandedNode>TDS_UpdateRawMagnetData/source/app</ExpandedNode><ExpandedNode>TDS_UpdateRawMagnetData/source/bsp</ExpandedNode><ExpandedNode>TDS_UpdateRawMagnetData/source/mrfi</ExpandedNode><ExpandedNode>TestStubRx</ExpandedNode><ExpandedNode>TestStubRx/mrfi.c</ExpandedNode><ExpandedNode>TestStubTx</ExpandedNode></NodeDict></Session></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd1></Windows>
+    <Editor>
+      
+      
+      
+      
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\system\src\app\TDSEnd.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>190</YPos2><SelStart2>5498</SelStart2><SelEnd2>5498</SelEnd2></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\system\src\bsp\hmc5883l.c</Filename><XPos>0</XPos><YPos>0</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd><XPos2>0</XPos2><YPos2>75</YPos2><SelStart2>3794</SelStart2><SelEnd2>3794</SelEnd2></Tab><ActiveTab>1</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Positions>
+      
+      
+      
+      
+      
+    <Top><Row0><Sizes><Toolbar-00c6c7a8><key>iaridepm.enu1</key></Toolbar-00c6c7a8></Sizes></Row0><Row1><Sizes/></Row1><Row2><Sizes/></Row2><Row3><Sizes/></Row3><Row4><Sizes/></Row4><Row5><Sizes/></Row5><Row6><Sizes/></Row6><Row7><Sizes/></Row7><Row8><Sizes/></Row8><Row9><Sizes/></Row9><Row10><Sizes/></Row10></Top><Left><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>360</Bottom><Right>353</Right><x>-2</x><y>-2</y><xscreen>148</xscreen><yscreen>134</yscreen><sizeHorzCX>108346</sizeHorzCX><sizeHorzCY>192529</sizeHorzCY><sizeVertCX>259883</sizeVertCX><sizeVertCY>520115</sizeVertCY></Rect></Wnd1></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>291</Bottom><Right>1368</Right><x>-2</x><y>-2</y><xscreen>1370</xscreen><yscreen>293</yscreen><sizeHorzCX>1002928</sizeHorzCX><sizeHorzCY>420977</sizeHorzCY><sizeVertCX>147877</sizeVertCX><sizeVertCY>274425</sizeVertCY></Rect></Wnd0></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+  </Desktop>
+</Workspace>
+
+
